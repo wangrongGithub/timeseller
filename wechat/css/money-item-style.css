@@ -1,0 +1,74 @@
+body{
+    background-color: #f0f0f0;
+}
+.money-wrapper {
+    width: 97.5%;
+    margin: 0 0 0 2.5%;
+    border-top: 1px solid #dddddd;
+}
+.fenge + .money-wrapper{
+    border-top: 1px solid #FFFFFF;
+}
+
+.money-wrapper .content {
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 5px 5px;
+}
+
+.money-wrapper .content .left {
+    flex: 0 0;
+}
+.money-wrapper .content .center {
+    flex: 1 1;
+}
+
+.money-wrapper .content .left>div{
+    width: 100px;
+    line-height: 25px;
+    text-align: left;
+}
+.money-wrapper .content .top {
+    font-size: 1.0em;
+    color: #333333;
+}
+.money-wrapper .content .time {
+    font-size: 0.9em;
+    color: #666666;
+}
+.money-wrapper .content .reason {
+    height: 50px;
+    line-height: 50px;
+    text-align: left;
+    font-size: 1.1em;
+    color: #333333;
+}
+.money-wrapper .content .goldCoins {
+    height: 50px;
+    width: 45px;
+    line-height: 50px;
+    text-align: left;
+    font-size: 1.2em;
+}
+.money-wrapper .content .goldCoins.zheng{
+    color: #65e3a6;
+}
+.money-wrapper .content .goldCoins.fu{
+    color: #fd514f;
+}
+
+.fenge{
+    background-color: #f0f0f0;
+    line-height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.fenge img{
+    width: 20px;
+    height: 24px;
+    margin: 6px 5px 0 15px;
+}
+.fenge .title{
+    font-size: 1em;
+}

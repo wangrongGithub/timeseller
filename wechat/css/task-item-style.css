@@ -1,0 +1,132 @@
+/*强调色*/
+
+
+/*输入框的颜色*/
+
+
+/*按钮的颜色*/
+
+
+/*item的颜色*/
+
+
+/*搜索提示内容的颜色*/
+
+.goods-wrapper {
+    width: 100%;
+}
+
+.goods-wrapper .content {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 5px 0;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    border-radius: 0;
+    overflow: hidden;
+}
+
+.goods-wrapper .left-user {
+    flex: 0 0;
+    padding: 10px;
+}
+
+.goods-wrapper .right-goods {
+    flex: 1 1;
+    padding: 5px 5px;
+}
+
+.goods-wrapper .left-user .image img {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+}
+
+.goods-wrapper .left-user .money {
+    text-align: right;
+    margin: 2px 0;
+    font-size: 0.8em;
+}
+
+.goods-wrapper .left-user .money img {
+    width: 12px;
+    height: 12px;
+    float: right;
+    margin-left: 3px;
+    margin-right: 17px;
+    margin-top: 2px;
+}
+
+.goods-wrapper .left-user .name {
+    text-align: center;
+    font-size: 0.8em;
+}
+
+.goods-wrapper .right-goods .top {
+    overflow: hidden;
+}
+
+.goods-wrapper .right-goods .bottom {
+    overflow: hidden;
+}
+
+.goods-wrapper .right-goods .title {
+    font-size: 1.1em;
+    color: #000000;
+    line-height: 22px;
+    padding-top: 1px;
+    max-height: 22px;
+    float: left;
+    overflow: hidden;
+}
+
+.goods-wrapper .right-goods .type {
+    margin-right: 5px;
+    color: #29db8d;
+    font-size: 0.8em;
+    padding: 2px 6px 1px;
+    float: right;
+}
+
+.goods-wrapper .right-goods .describe {
+    margin: 0;
+    font-size: 1.0em;
+    color: #000000;
+}
+
+.goods-wrapper .right-goods .describe p {
+    font-size: 14px;
+    height: 40px;
+    max-height: 40px;
+    min-height: 40px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.goods-wrapper .right-goods .place {
+    margin-left: 5px;
+    font-size: 0.9em;
+    color: #999999;
+    line-height: 24px;
+    padding: 0 0 0 13px;
+    background: url("../img/index/task_place.png") no-repeat left 4px;
+    background-size: 10px 13px;
+}
+
+.goods-wrapper .right-goods .time {
+    float: left;
+    margin: 5px 0;
+    font-size: 0.8em;
+    color: #999999;
+}
+
+.goods-wrapper .right-goods .operation {
+    float: right;
+    border: 1px solid #e5e5e5;
+    margin-right: 10px;
+    font-size: 0.9em;
+    padding: 1px 12px;
+    background: #29db8d;
+    border-radius: 5px;
+    color: #ffffff;
+}

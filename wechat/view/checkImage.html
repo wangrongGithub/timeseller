@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+　　<meta http-equiv="Pragma" content="no-cache" />
+　　<meta http-equiv="Expires" content="0" />
+ <!--   引入jQuery -->
+<script src="../../common/js/jquery-2.1.4.js" type="text/javascript"></script>
+<script type="text/javascript">
+//定义div的点击事件，其实还没有写好，就是点击一次就不能点击了
+
+function js_click(e){
+
+if(window.confirm("您确认该图片是校园卡吗"+e.id))
+{
+ //alert("dddd");
+ 
+ $.get("http://timeseller.fantasy512.cn/ddh/check/setImageFlag/" + e.id, function(datas){
+  
+ 
+        if (datas.status == 1) {
+           // alert("数据获取成功");
+			//alert("datas.status ="+datas.status );
+			//alert("#"+e.id);
+			//使得div的点击事件失效
+	
+			$("#"+e.id).hide();
+			
+			
+			alert("确认校园卡成功");
+			
+           
+        } 
+		else {
+            alert("您之前已经确认过了，请不要重复确认");
+        }
+    });
+
+ 
+}
+else
+{
+
+                alert("取消成功");
+              
+ }	
+}
+$(function(){
+	/* 服务器返回码 */
+var Status = {
+    Status_Error: 0,
+    Status_OK: 1,
+    Status_NULL_Result: 2,
+    Status_Parameter_Error: 3,
+    LoginException: 4,
+    Status_Path_Error: 5
+};
+		
+	   
+            $.get("http://timeseller.fantasy512.cn/ddh/check/getAllImage", function (data){
+                       // alert("ok"); // 把返回的数据添加到页面上
+			if(data.status == Status.Status_OK){
+                 // alert("数据获取成功");
+				  show(data.data);
+            }else{
+                  alert("false");
+            }
+						
+                    }
+            );
+	   
+	   
+	    function show(datas) {
+        /*增加分割的标志*/
+		 var h1=$(window).height();
+	   var h2=$(window).width();
+        //h1里面放小的	  
+	     var height=200;
+		 var width=h2/4;
+		var div1="<div    id='";
+       var div2="' style='";
+     var img1="<img src='";
+     var img2="' height='"+height+"' width='"+width+"'>   </div>";
+      var  sum;
+        for (var i = 0; i < datas.length; i++) 
+		{
+		//计算位置，图片大小是确定的
+		var t=Math.floor(i/4);
+		var  top=t*height;
+		 var left=(i%4)*width;
+		
+		var style1="width:"+width+"px; height:"+height+"px; border:1px solid #00F;position:absolute;left:"+left+"px;top:"+top+"px'   onclick='js_click(this)'> ";
+		 var uid=datas[i].uid;
+           var card="http://timeseller.fantasy512.cn/ddh/"+datas[i].card;
+		   var str=div1+uid+div2+style1+img1+card+img2;
+		  // alert(str);
+		   sum=sum+str;
+		//  document.getElementById("mydiv").innerHTML=str;
+		   
+        }
+		document.getElementById("mydiv").innerHTML=sum;
+       
+    }
+	   
+	   
+    })
+//]]>
+</script>
+</head>
+<body>
+
+<div id="mydiv"> </div >
+ 
+
+
+</body>
+</html>

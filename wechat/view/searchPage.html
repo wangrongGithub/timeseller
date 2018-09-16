@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- common head and css -->
+    
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="description" content="这是一个神奇的网站">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+　　<meta http-equiv="Pragma" content="no-cache" />
+　　<meta http-equiv="Expires" content="0" />
+<title>搜索</title>
+
+<!-- common -->
+<link rel="stylesheet" href="../../common/css/reset.css" />
+<link rel="stylesheet" href="../../common/css/weui.css" />
+<link rel="stylesheet" href="../../common/css/jquery-weui.css" />
+<!-- common -->
+
+    <!-- common head and css -->
+
+    <!-- for search css -->
+    <link rel="stylesheet" href="../css/search-page-prompt-style.css" />
+    <link rel="stylesheet" href="../css/task-item-style.css" />
+
+</head>
+<body>
+
+    <div class="weui-search-bar weui-search-bar_focusing" id="searchBar">
+        <form class="weui-search-bar__form" id="search-form">
+            <div class="weui-search-bar__box">
+                <i class="weui-icon-search"></i>
+                <input type="search" class="weui-search-bar__input" id="searchInput" data-default="取快递" placeholder="搜索" required="">
+                <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+            </div>
+            <label class="weui-search-bar__label" id="searchText">
+                <i class="weui-icon-search"></i>
+                <span>搜索</span>
+            </label>
+        </form>
+        <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+    </div>
+
+    <div class="search-prompt-wrapper" id="search-prompt">
+        <div class="weui-cells__title" id="historySearch">历史搜索</div>
+        <div class="weui-cells"  id="historySearchContent">
+            <div class="weui-cell">
+                <div id="search-prompt-history" class="content"></div>
+            </div>
+        </div>
+        <div class="weui-cells__title"id="commonSearch">常用搜索</div>
+        <div class="weui-cells"id="commonSearchContent">
+            <div class="weui-cell">
+                <div id="search-prompt-common" class="content"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="data" style="display: none">
+        
+<li class="goods-wrapper">
+    <div class="content">
+        <div class="left-user" data-user="">
+            <div class="image"><img src=""></div>
+            <div class="money"><span></span><img src="../img/task-item/money.png"></div>
+            <div class="name"></div>
+        </div>
+        <div class="right-goods" data-id="">
+            <div class="top"><div class="title"></div><div class="type"></div></div>
+            <div class="place"><span></span></div>
+            <div class="describe"><p></p></div>
+            <div class="bottom">
+                <div class="time"><span class="time-content"></span></div>
+                <div class="operation"><span>抢单</span></div>
+            </div>
+        </div>
+    </div>
+</li>
+
+    </div>
+
+    <div id="wrapper" style="background-color: #ffffff">
+        <ul>
+
+        </ul>
+        <div id="task-load-more" class="weui-loadmore" style="display: none">
+            <i class="weui-loading"></i>
+            <span class="weui-loadmore__tips">正在加载</span>
+        </div>
+        <div id="show-no-data" style="display: none">
+            <!--<meta charset="utf-8">
+<style>
+    body{
+        margin: 0px;padding: 0px;
+    }
+</style>
+<div style="height: 500px">
+    <div style="width: 100%; height: 100%;
+        display: flex;flex-direction: row;
+        justify-content: center; align-items: center">
+        <div style="">
+            <img src="../img/common/no_data.png" style="width: 128px; height: 100px;">
+            <div style="text-align:center; color: #bebebe; font-size: 18px;margin-top: 5px;">暂时没有数据！</div>
+        </div>
+    </div>
+</div>-->
+
+<!--使用方法：
+1.没有数据：
+    @ @include("include/common-error-info.html", {"image": "../img/common/no_data.png", "info": "暂时没有数据！"})
+1.没有网络：
+    @ @include("include/common-error-info.html", {"image": "../img/common/no_net.png", "info": "无网络，请检查！"})
+1.加载失败：
+    @ @include("include/common-error-info.html", {"image": "../img/common/no_load.png", "info": "加载失败！"})
+-->
+<div style="width: 100%; height: 100%;margin-top:100px;display: flex;flex-direction: row; justify-content: center; align-items: center">
+    <div>
+        <img src="../img/common/no_data.png" style="width: 128px; height: 100px;">
+        <div style="text-align:center; color: #bebebe; font-size: 18px;margin-top: 5px;">暂时没有结果！</div>
+    </div>
+</div>
+        </div>
+    </div>
+
+    <!-- common js -->
+    
+<script src="../../common/js/jquery-2.1.4.js"></script>
+<script src="../../common/js/jquery-weui.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<!-- for ios bug -->
+<script src="../../common/js/fastclick.js"></script>
+<script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+</script>
+
+<script src="../js/pre-deal.js"></script>
+
+<!-- task.html for image swiper -->
+<script src="../../common/js/swiper.min.js"></script>
+
+    <!-- common js -->
+
+    <!-- ALISURE -->
+    <script src="../js/search-page.js"></script>
+    <!-- ALISURE -->
+</body>
+</html>

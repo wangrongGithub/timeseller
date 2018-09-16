@@ -1,0 +1,85 @@
+<!-- fengziboboy at 2017.11.21 -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width,initial-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+　　<meta http-equiv="Pragma" content="no-cache" />
+　　<meta http-equiv="Expires" content="0" />
+    <title>个人资料-编辑</title>
+
+    <link rel="stylesheet" href="../../common/css/weui.css">
+    <link rel="stylesheet" href="../../common/css/jquery-weui.css">
+    <link rel="stylesheet" type="text/css" href="../css/comment.css">
+</head>
+
+<body>
+    <header class='comment-header'>
+        <h1 class="comment-title">请评价本次服务</h1>
+    </header>
+    <div class="weui-cells weui-cells_form">
+        <div id="star">
+            <span>打分</span>
+            <ul>
+                <li><a href="javascript:;">1</a></li>
+                <li><a href="javascript:;">2</a></li>
+                <li><a href="javascript:;">3</a></li>
+                <li><a href="javascript:;">4</a></li>
+                <li><a href="javascript:;">5</a></li>
+            </ul>
+            <span></span>
+            <p></p>
+        </div>
+        <div class="weui-cell  comment-block">
+            <div class="weui-cell__bd">
+                <textarea id="comment-describe" class="weui-textarea" placeholder="请输入您的评价" rows="3"></textarea>
+                <div class="weui-textarea-counter"><span id="comment-describe-length">0</span>/200</div>
+            </div>
+        </div>
+    </div>
+    <div class="weui-btn-area">
+        <a class="weui-btn weui-btn_primary" href="javascript:" id="comment-submit">提交评论</a>
+    </div>
+    <div class="weui-cell weui-cell_switch">
+        <div class="weui-cell__bd">投诉</div>
+        <div class="weui-cell__ft">
+            <input id="isComplaint" class="weui-switch" type="checkbox" value="1">
+        </div>
+    </div>
+    <div class="weui-cells weui-cells_form" id="complaint-content" style="display:none;">
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <textarea id="complaint-describe" class="weui-textarea" placeholder="请输入投诉内容" rows="3"></textarea>
+                <div class="weui-textarea-counter"><span id="complaint-describe-length">0</span>/200</div>
+            </div>
+        </div>
+        <div class="weui-btn-area">
+            <a class="weui-btn weui-btn_primary" href="javascript:" id="complaint-submit">提交投诉</a>
+        </div>
+    </div>
+
+    <!-- common js -->
+    
+<script src="../../common/js/jquery-2.1.4.js"></script>
+<script src="../../common/js/jquery-weui.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<!-- for ios bug -->
+<script src="../../common/js/fastclick.js"></script>
+<script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+</script>
+
+<script src="../js/pre-deal.js"></script>
+
+<!-- task.html for image swiper -->
+<script src="../../common/js/swiper.min.js"></script>
+
+    <!-- common js -->
+    <script src="../js/comment.js"></script>
+</body>
+
+</html>

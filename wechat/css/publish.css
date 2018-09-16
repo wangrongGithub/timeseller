@@ -1,0 +1,34 @@
+.publish-wrapper{
+    background: #eee;
+    overflow: hidden;
+}
+.publish-wrapper .publish-label-image{
+    float: left;
+}
+.publish-wrapper .publish-label-text{
+    float: left;
+}
+.publish-wrapper .publish-label-image img{
+    width:20px;
+    margin-right:5px;
+    margin-top: 3px;
+    display:block
+}
+
+/* reset weui*/
+.weui-cells{
+    margin-top: .5em;
+}
+.weui-label{
+    width: 85px;
+}
+.weui-btn_primary{
+    background-color: #29db8d;
+}
+.weui-textarea{
+    font-size: 0.9em;
+}
+.weui-textarea-counter{
+    font-size: 0.9em;
+}
+/* reset weui*/

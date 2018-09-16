@@ -1,0 +1,23 @@
+/*强调色*/
+/*输入框的颜色*/
+/*按钮的颜色*/
+/*item的颜色*/
+/*搜索提示内容的颜色*/
+.search-prompt-wrapper {
+  width: 100%;
+}
+.search-prompt-wrapper .content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.search-prompt-wrapper .item {
+  border: 1px solid #e5e5e5;
+  padding: 5px;
+  margin: 4px;
+  font-size: 0.7em;
+  border-radius: 5px;
+}
+.search-prompt-wrapper .item:hover {
+  background: #e5e5e5;
+}

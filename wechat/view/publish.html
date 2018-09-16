@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- common head and css -->
+    
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="description" content="这是一个神奇的网站">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+　　<meta http-equiv="Pragma" content="no-cache" />
+　　<meta http-equiv="Expires" content="0" />
+<title>发布任务</title>
+
+<!-- common -->
+<link rel="stylesheet" href="../../common/css/reset.css" />
+<link rel="stylesheet" href="../../common/css/weui.css" />
+<link rel="stylesheet" href="../../common/css/jquery-weui.css" />
+<!-- common -->
+
+    <!-- common head and css -->
+    <!-- ALISURE -->
+    <link rel="stylesheet" href="../css/publish.css">
+    <!-- ALISURE -->
+</head>
+
+<body>
+
+<div class="publish-wrapper">
+    <!-- 任务名称 -->
+    <div class="weui-cells weui-cells_form">
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label">任务名称</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input id="task-name" class="weui-input"/>
+            </div>
+        </div>
+    </div>
+
+    <!--填写区域一-->
+    <div class="weui-cells weui-cells_form">
+        <!--类型-->
+        <div class="weui-cell weui-cell_select weui-cell_select-after">
+            <div class="weui-cell__hd">
+                <div class="weui-label">
+                    <!--<div class="publish-label-image">
+                        <img src="../img/publish/type.png" alt="">
+                    </div>-->
+                    <div class="publish-label-text">类型</div>
+                </div>
+            </div>
+            <div class="weui-cell__bd">
+                <select class="weui-select" id="task-type" name="select1"></select>
+            </div>
+        </div>
+        <!--开始 时间-->
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <div class="weui-label">
+                    <!--<div class="publish-label-image">
+                        <img src="../img/publish/time.png" alt="">
+                    </div>-->
+                    <div class="publish-label-text">开始时间</div>
+                </div>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" id="task-time-begin"/>
+            </div>
+        </div>
+        <!--结束 时间-->
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <div class="weui-label">
+                    <!--<div class="publish-label-image">
+                        <img src="../img/publish/time.png" alt="">
+                    </div>-->
+                    <div class="publish-label-text">结束时间</div>
+                </div>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" id="task-time-end"/>
+            </div>
+        </div>
+        <!--地点-->
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <div class="weui-label">
+                    <!--<div class="publish-label-image">
+                        <img src="../img/publish/place.png" alt="">
+                    </div>-->
+                    <div class="publish-label-text">地点</div>
+                </div>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" id="task-place" value="" placeholder="请填写地点"/>
+            </div>
+        </div>
+    </div>
+
+    <!--填写区域二-->
+    <div class="weui-cells weui-cells_form">
+        <!--金币-->
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <div class="weui-label">
+                    <!--<div class="publish-label-image">
+                        <img src="../img/publish/money.png" alt="">
+                    </div>-->
+                    <div class="publish-label-text">金币</div>
+                </div>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" id="task-money" type="number" value="" placeholder="请填写金币数"/>
+            </div>
+        </div>
+        <!--酬劳-->
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <div class="weui-label">
+                    <!--<div class="publish-label-image">
+                        <img src="../img/publish/other-money.png" alt="">
+                    </div>-->
+                    <div class="publish-label-text">酬劳</div>
+                </div>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" id="task-other-money" value="" placeholder="请填写金额或自定义"/>
+            </div>
+        </div>
+        <!--联系方式-选择-->
+        <div class="weui-cell weui-cell_select weui-cell_select-after">
+            <div class="weui-cell__hd">
+                <div class="weui-label">
+                    <!--<div class="publish-label-image">
+                        <img src="../img/publish/link.png" alt="">
+                    </div>-->
+                    <div class="publish-label-text">联系方式</div>
+                </div>
+            </div>
+            <div class="weui-cell__bd">
+                <select class="weui-select" id="task-link-select" name="select2"></select>
+            </div>
+        </div>
+        <!--联系方式-填写-->
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <div class="weui-label">
+                    <!--<div class="publish-label-image">
+                        <img src="../img/publish/link.png" alt="">
+                    </div>-->
+                    <div class="publish-label-text" id="task-link-method"></div>
+                </div>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" id="task-link-input" type="tel" value=""/>
+            </div>
+        </div>
+    </div>
+
+    <!--任务文本-->
+    <div class="weui-cells weui-cells_form">
+        <div class="weui-cell">
+            <div class="weui-cell__bd"><p>任务描述</p></div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <textarea id="task-describe" class="weui-textarea" rows="3"></textarea>
+                <div class="weui-textarea-counter">
+                    <span id="task-describe-length">0</span>/<span id="task-describe-max-length">200</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--上传图片-->
+    <!-- <div class="weui-cells weui-cells_form">
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                上传
+                <div class="weui-uploader">
+                    <div class="weui-uploader__hd">
+                        <p class="weui-uploader__title">图片信息</p>
+                        <div class="weui-uploader__info"><span id="uploaderFiles-number"></span>/<span id="uploaderFiles-max-number"></span></div>
+                    </div>
+                    <div class="weui-uploader__bd">
+                        <ul class="weui-uploader__files" id="uploaderFiles"></ul>
+                        <div class="weui-uploader__input-box">
+                            <input id="uploaderInput" class="weui-uploader__input" type="button" />
+                        </div>
+                    </div>
+                </div>
+                查看图片
+                <div class="weui-gallery" id="uploaderFiles-gallery">
+                    <span class="weui-gallery__img" data-for-delete=""></span>
+                    <div class="weui-gallery__opr">
+                        <a href="javascript:" class="weui-gallery__del">
+                            <i class="weui-icon-delete weui-icon_gallery-delete"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+     <!-- 图片预览  -->
+    <div class="weui-gallery" id="gallery">  
+      <span class="weui-gallery__img" id="galleryImg"></span>  
+      <div class="weui-gallery__opr">  
+        <a href="javascript:" class="weui-gallery__del">  
+          <i class="weui-icon-delete weui-icon_gallery-delete"></i>  
+        </a>  
+      </div>  
+    </div>
+    <!-- 图片上传 -->
+    <div class="weui-cells weui-cells_form">
+          <div class="weui-cell">
+            <div class="weui-cell__bd">
+              <!-- 上传图片 -->
+              <div class="weui-uploader">
+                <div class="weui-uploader__hd">
+                  <p class="weui-uploader__title">图片信息（最多上传三张）</p>
+                </div>
+                <div class="weui-uploader__bd">
+                  <ul class="weui-uploader__files" id="uploaderFiles">    
+                  </ul>
+                  <div class="weui-uploader__input-box" id="weui-uploader__input-box">
+                    <input id="uploaderInput" class="weui-uploader__input zjxfjs_file" type="file" accept="image/*" multiple="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+
+    <!--私密信息-->
+    <div class="weui-cells weui-cells_form">
+        <div class="weui-cell">
+            <div class="weui-cell__bd"><p>悄悄话</p></div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <textarea id="task-secret" class="weui-textarea" rows="3"></textarea>
+                <div class="weui-textarea-counter">
+                    <span id="task-secret-length">0</span>/<span id="task-secret-max-length">200</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--提交按钮-->
+    <div class="weui-btn-area">
+        <a class="weui-btn weui-btn_primary" href="javascript:" id="submit">确定</a>
+    </div>
+
+    <!--空白-->
+    <div style="margin-top: 1.17647059em"></div>
+</div>
+
+<!-- common js -->
+
+<script src="../../common/js/jquery-2.1.4.js"></script>
+<script src="../../common/js/jquery-weui.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<!-- for ios bug -->
+<script src="../../common/js/fastclick.js"></script>
+<script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+</script>
+
+<script src="../js/pre-deal.js"></script>
+
+<!-- task.html for image swiper -->
+<script src="../../common/js/swiper.min.js"></script>
+
+<!-- common js -->
+<!-- ALISURE -->
+<script src="../js/publish.js"></script>
+<!-- ALISURE -->
+</body>
+
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- common head and css -->
+    
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="description" content="这是一个神奇的网站">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+　　<meta http-equiv="Pragma" content="no-cache" />
+　　<meta http-equiv="Expires" content="0" />
+<title>个人中心</title>
+
+<!-- common -->
+<link rel="stylesheet" href="../../common/css/reset.css" />
+<link rel="stylesheet" href="../../common/css/weui.css" />
+<link rel="stylesheet" href="../../common/css/jquery-weui.css" />
+<!-- common -->
+
+    <!-- common head and css -->
+    <!-- zhao jinbo -->
+    <link rel="stylesheet" href="../css/personcenter.css">
+    <!-- zhao jinbo -->
+
+</head>
+
+<body>
+
+<!-- 2017-05-16 个人中心页面帮你弄过来了-->
+<div class="weui-tab">
+    <div class="personal-main-top">
+        <img class="personal-main-top-blur" src="../img/personCenter/perCenterBg.png">
+        <!--个人中心-个人资料-->
+        <div class="personal-main-top-body">
+            <!-- 账户值 -->
+            <div class="personal-main-top-money" data-id="1">
+                <p class="tiaozhuan">账户值：</p>
+                <p class="tiaozhuan" id="user_golds">0</p>
+                <img class="tiaozhuan" src="../img/personCenter/icon_gold.png">
+                <button class="btn true">签到</button>
+            </div>
+
+            <!-- 基本信息及入口 -->
+            <div class="personal-main-top-user">
+                <div class="personal-main-top-user-img" user-id="1">
+                    <img src="">
+                </div>
+                <div class="personal-main-top-username">
+                    <p name="username" id="user-name">还未填写名字</p>&nbsp;
+                    <img src="../img/personCenter/gender-boy.png">
+                </div>
+                <p name="userschool" id="user-school" school-id="1">西安电子科技大学</p>
+            </div>
+
+        </div>
+    </div>
+    <!-- 切换 -->
+    <div class="personal-main-top-navbar">
+        <a class="personal-main-top-navbar-item personal-main-top-navbar-item-on" href="#my-task-page">
+            我的任务
+            <div class="bottom-line bottom-line-on" style="display:none;"></div>
+        </a>
+        <a class="personal-main-top-navbar-item" href="#my-publish-page">
+            我的发布
+            <div class="bottom-line" style="display:none;"></div>
+        </a>
+    </div>
+
+    <div class="personal-main-bottom">
+
+        <!-- 我的任务 START -->
+        <div id="my-task-page" class="personal-task personal-task--active">
+            <!-- HTML 我的任务模板 -->
+            <div id="userTaskData" style="display: none">
+                <li class="user-goods-wrapper">
+    <div class="personal-mytask-content">
+        <div class="personal-mytask-content-leftTop">
+        </div>
+        <div class="personal-mytask-content-rightTop"></div>
+        <div class="personal-mytask-content-body" myTask-id="111">
+            <div class="top">
+                <div class="title"></div>
+                <div class="type">
+                    <img src="">
+                    <p></p>
+                </div>
+                <div class="operation">
+                    <img src="../img/personCenter/grzx5.png">
+                </div>
+            </div>
+            <div class="describe">
+                <p></p>
+            </div>
+        </div>
+    </div>
+
+</li>
+            </div>
+            <!-- HTML 我的任务模板 -->
+            <div id="userTaskWrapper" style="background-color: #ffffff">
+                <ul id="user-task-list">
+
+                </ul>
+                <div id="user-task-load-more" class="weui-loadmore">
+                    <i class="weui-loading"></i>
+                    <span class="weui-loadmore__tips">正在加载</span>
+                </div>
+                <div id="task-show-no-data" style="display: none">
+                    <!--<meta charset="utf-8">
+<style>
+    body{
+        margin: 0px;padding: 0px;
+    }
+</style>
+<div style="height: 500px">
+    <div style="width: 100%; height: 100%;
+        display: flex;flex-direction: row;
+        justify-content: center; align-items: center">
+        <div style="">
+            <img src="../img/common/no_data.png" style="width: 128px; height: 100px;">
+            <div style="text-align:center; color: #bebebe; font-size: 18px;margin-top: 5px;">暂时没有数据！</div>
+        </div>
+    </div>
+</div>-->
+
+<!--使用方法：
+1.没有数据：
+    @ @include("include/common-error-info.html", {"image": "../img/common/no_data.png", "info": "暂时没有数据！"})
+1.没有网络：
+    @ @include("include/common-error-info.html", {"image": "../img/common/no_net.png", "info": "无网络，请检查！"})
+1.加载失败：
+    @ @include("include/common-error-info.html", {"image": "../img/common/no_load.png", "info": "加载失败！"})
+-->
+<div style="width: 100%; height: 100%;margin-top:100px;display: flex;flex-direction: row; justify-content: center; align-items: center">
+    <div>
+        <img src="../img/common/no_data.png" style="width: 128px; height: 100px;">
+        <div style="text-align:center; color: #bebebe; font-size: 18px;margin-top: 5px;">暂时没有数据！</div>
+    </div>
+</div>
+                </div>
+            </div>
+
+        </div>
+        <!-- 我的任务 END -->
+
+        <!-- 我的发布 START -->
+        <div id="my-publish-page" class="personal-publish">
+            <!-- HTML 我的发布模板 -->
+            <div id="userPublishData" style="display: none">
+                <li class="user-goods-wrapper">
+    <div class="personal-mypub-content" myPub-id="111">
+        <div class="personal-mypub-content-left">
+            <div class="status-image"><img src=""></div>
+            <div class="status-name"></div>
+        </div>
+        <div class="personal-mypub-content-body" myPub-id="111">
+            <div class="top">
+                <div class="title"></div>
+                <div class="type">
+                    <img src="">
+                    <p></p>
+                </div>
+                <!-- <div class="time">
+                        <span>发布时间：</span>
+                        <span class="time-content"></span>
+                    </div> -->
+                <div class="operation">
+                    <img src="../img/personCenter/grzx5.png">
+                </div>
+
+            </div>
+            <div class="describe">
+                <p></p>
+            </div>
+            <!--                 
+                <div class="bottom">
+                    <div class="place">
+                        地点：<span></span>
+                    </div>
+
+                </div> 
+                -->
+        </div>
+    </div>
+</li>
+            </div>
+            <!-- HTML 我的发布模板 -->
+            <div id="userPublishWrapper" style="background-color: #ffffff">
+                <ul id="user-publish-list">
+
+                </ul>
+                <div id="user-publish-load-more" class="weui-loadmore">
+                    <i class="weui-loading"></i>
+                    <span class="weui-loadmore__tips">正在加载</span>
+                </div>
+                <div id="publish-show-no-data" style="display: none">
+                    <!--<meta charset="utf-8">
+<style>
+    body{
+        margin: 0px;padding: 0px;
+    }
+</style>
+<div style="height: 500px">
+    <div style="width: 100%; height: 100%;
+        display: flex;flex-direction: row;
+        justify-content: center; align-items: center">
+        <div style="">
+            <img src="../img/common/no_data.png" style="width: 128px; height: 100px;">
+            <div style="text-align:center; color: #bebebe; font-size: 18px;margin-top: 5px;">暂时没有数据！</div>
+        </div>
+    </div>
+</div>-->
+
+<!--使用方法：
+1.没有数据：
+    @ @include("include/common-error-info.html", {"image": "../img/common/no_data.png", "info": "暂时没有数据！"})
+1.没有网络：
+    @ @include("include/common-error-info.html", {"image": "../img/common/no_net.png", "info": "无网络，请检查！"})
+1.加载失败：
+    @ @include("include/common-error-info.html", {"image": "../img/common/no_load.png", "info": "加载失败！"})
+-->
+<div style="width: 100%; height: 100%;margin-top:100px;display: flex;flex-direction: row; justify-content: center; align-items: center">
+    <div>
+        <img src="../img/common/no_data.png" style="width: 128px; height: 100px;">
+        <div style="text-align:center; color: #bebebe; font-size: 18px;margin-top: 5px;">暂时没有数据！</div>
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+        <!-- 我的发布 END -->
+    </div>
+
+</div>
+<!-- 2017-05-16 个人中心页面帮你弄过来了-->
+
+<!-- common js -->
+
+<script src="../../common/js/jquery-2.1.4.js"></script>
+<script src="../../common/js/jquery-weui.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<!-- for ios bug -->
+<script src="../../common/js/fastclick.js"></script>
+<script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+</script>
+
+<script src="../js/pre-deal.js"></script>
+
+<!-- task.html for image swiper -->
+<script src="../../common/js/swiper.min.js"></script>
+
+<!-- common js -->
+
+<!-- zhao jinbo -->
+<script src="../js/personal-center.js"></script>
+<!-- zhao jinbo -->
+
+</body>
+
+</html>

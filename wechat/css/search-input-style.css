@@ -1,0 +1,40 @@
+/*强调色*/
+/*输入框的颜色*/
+/*按钮的颜色*/
+/*item的颜色*/
+/*搜索提示内容的颜色*/
+.search-wrapper {
+  width: 100%;
+}
+.search-wrapper .search-widget {
+  width: 90%;
+  margin: 5px 5%;
+}
+.search-wrapper input {
+  outline: none;
+}
+.search-wrapper .search-input {
+  height: 36px;
+  width: 97.5%;
+  padding: 0 0 0 2.5%;
+}
+.search-wrapper .search-input.input-style {
+  border-radius: 8px;
+  border: 1px solid green;
+  font-size: 16px;
+  color: green;
+}
+.search-wrapper .search-submit {
+  width: 15%;
+  height: 38px;
+  position: absolute;
+  top: 0;
+  right: -2px;
+  margin: 5px 5% 5px 0;
+}
+.search-wrapper .search-submit.input-style {
+  border: 1px solid green;
+  border-radius: 0 8px 8px 0;
+  font-size: 16px;
+  background: green;
+}

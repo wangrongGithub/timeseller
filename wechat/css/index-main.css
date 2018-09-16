@@ -1,0 +1,151 @@
+.index-body {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+}
+
+.index-select-school {
+    display: flex;
+    font-size: 14px;
+    align-items: center;
+}
+
+.index-select-school img {
+    width: 14px;
+    height: 8px;
+    margin: 0px 4px 0px 2px;
+}
+
+.index-task-type {
+    background-color: #eee;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #eee;
+}
+
+.index-task-type .index-task-type-bar {
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.index-task-type .index-task-type-bar>div {
+    float: left;
+}
+
+.index-task-type .index-task-type-bar-name {
+    line-height: 40px;
+    text-align: center;
+    margin-left: 5px;
+}
+
+.index-task-type .index-task-type-bar img {
+    width: 35px;
+    height: 35px;
+    margin-top: 2.5px;
+    margin-left: 10px;
+}
+
+
+/*school*/
+
+.index-task-type .index-task-school {
+    float: right !important;
+}
+
+.index-task-type .index-task-school>div {
+    float: left;
+    line-height: 40px;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.index-task-type .index-task-school div:last-child {
+    background: url(../img/index/change_school.png) no-repeat right center;
+    padding: 0 13px 0 0;
+    background-size: 10px 16px;
+}
+
+.index-task-type .index-task-school .change-school {
+    cursor: pointer;
+}
+
+.index-task-type .index-task-type-body {}
+
+.index-task-type .index-task-type-body .index-task-type-tabbar {
+    display: flex;
+    background-color: #fff;
+    overflow: scroll;
+}
+
+.index-task-type .index-task-type-body .index-task-type-item {
+    padding: 10px 20px;
+    margin: 0px 2px;
+}
+
+.index-task-type .index-task-type-body .index-task-type-item.current p {
+    color: #29db8d;
+}
+
+.index-task-type .index-task-type-body img {
+    width: 35px;
+    height: 35px;
+}
+
+.index-task-type .index-task-type-body .index-task-type-label {
+    text-align: center;
+    color: #111;
+    font-size: 14px;
+}
+
+
+/* sort */
+
+.index-main-sort {}
+
+.index-main-sort .sort-content {
+    height: 40px;
+    width: 100%;
+}
+
+.index-main-sort .sort-content .sort-left {
+    float: left;
+    margin-left: 10px;
+}
+
+.index-main-sort .sort-content .sort-left>div {
+    float: left;
+    line-height: 26px;
+    margin: 9px 4px 5px;
+    font-size: 0.9em;
+    border-radius: 5px;
+    padding: 2px 5px 0;
+    background: #eee;
+}
+
+.index-main-sort .sort-content .sort-left>div:hover {
+    background: #29db8d;
+}
+
+.index-main-sort .sort-content .sort-left>div:active {
+    background: #29db8d;
+}
+
+.index-main-sort .sort-content .sort-left>div.current {
+    background: #29db8d;
+    color: white;
+}
+
+.index-main-sort .sort-content .sort-right {
+    float: right;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.index-main-sort .sort-content .sort-right img {
+    width: 24px;
+    height: 24px;
+    margin: 8px 5px;
+}
+
+
+/* sort */

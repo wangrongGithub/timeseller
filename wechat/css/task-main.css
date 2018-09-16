@@ -1,0 +1,156 @@
+.rec-info{
+    width: 100%;
+    height: 180px;
+    background: url("../img/publish/task-top-bg.png") no-repeat center;
+    background-size: 100% 100%;
+    color: #ffffff;
+}
+.rec-info .left{
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    font-size: 1.2em;
+}
+.rec-info .center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.rec-info .right{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    text-align: right;
+}
+.rec-info .right>div:first-child{
+    font-size: 1.2em;
+}
+.rec-info .center .head img{
+    width: 80px;
+    height: 80px;
+    border-radius: 42px;
+    border: 2px #FFFFFF solid;
+    margin: 20px 0 10px;
+}
+
+
+.publish-wrapper{
+    background: #f6f6f6;
+    overflow: hidden;
+}
+.publish-wrapper .publish-label-image{
+    float: left;
+}
+.publish-wrapper .publish-label-text{
+    float: left;
+}
+.publish-wrapper .publish-label-image img{
+    width:20px;
+    margin-right:10px;
+    margin-top: 3px;
+    display:block
+}
+
+
+.publish-wrapper .content {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 5px 0;
+    overflow: hidden;
+}
+.publish-wrapper .left-user {
+    flex: 0 0;
+    padding: 10px;
+}
+.publish-wrapper .right-task {
+    flex: 1 1;
+    padding: 5px 5px;
+}
+.publish-wrapper .left-user .image img {
+    width: 70px;
+    height: 70px;
+    border-radius: 35px;
+}
+.publish-wrapper .left-user .money {
+    text-align: right;
+    margin: 2px 0;
+    font-size: 0.8em;
+}
+.publish-wrapper .left-user .money img {
+    width: 12px;
+    height: 12px;
+    float: right;
+    margin-left: 3px;
+    margin-right: 17px;
+    margin-top: 3px;
+}
+.publish-wrapper .left-user .name {
+    text-align: center;
+    font-size: 0.8em;
+}
+.publish-wrapper .right-task .top{
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+}
+.publish-wrapper .right-task .title {
+    font-size: 1.2em;
+    color: #000000;
+    line-height: 22px;
+    padding-top: 1px;
+    flex: 1 1;
+}
+.publish-wrapper .right-task .type {
+    margin-right: 5px;
+    color: #ffb15d;
+    font-size: 0.9em;
+    padding: 2px 6px 1px;
+}
+.publish-wrapper .right-task .describe {
+    margin: 10px 0;
+    font-size: 0.9em;
+    color: #000000;
+}
+
+.publish-wrapper .secret-info{
+    color: #ffb15d;
+}
+
+/*图片 swiper 居中*/
+.photo-container{
+    justify-content: center;
+}
+/*不知道为什么 weui 要违背自己的原则， 设置z-index=2 */
+.weui-cells:before{
+    z-index: 0;
+}
+.weui-cell:before{
+    z-index: 0;
+}
+.weui-cell:after{
+    z-index: 0;
+}
+.weui-cells:after{
+    z-index: 0;
+}
+
+/* reset weui*/
+.weui-cells{
+    margin-top: .5em;
+}
+.weui-label{
+    width: 85px;
+}
+.weui-btn_primary{
+    background-color: #29db8d;
+}
+.weui-textarea{
+    font-size: 0.9em;
+}
+.weui-textarea-counter{
+    font-size: 0.9em;
+}
+.weui-cell__bd{
+    min-width: 80px;
+}
+/* reset weui*/
