@@ -7,6 +7,7 @@
 $(function() {
 showImage();
 submitImage();
+// var money=0;
     function showImage(){
         var count=0; 
         var tmpl = '<li class="weui-uploader__file" style="background-image:url(#url#)"></li>',  
@@ -132,7 +133,7 @@ submitImage();
         /*任务描述的最大长度*/
         task_describe_length: 200,
         /*私密信息的最大长度*/
-        task_secret_length: 200,
+        // task_secret_length: 200,
         /*图片的最大数量*/
         task_image_max_length: 3,
 
@@ -180,9 +181,9 @@ submitImage();
         $("#task-describe-max-length").text(task_params.task_describe_length);
 
         /*设置私密信息的限制*/
-        $("#task-secret").attr("placeholder", "说点悄悄话吧，只对任务接手者可见。如果任务中不需要，可以选择不填。不能超过" + task_params.task_secret_length + "个字");
-        $("#task-secret-length").text("0");
-        $("#task-secret-max-length").text(task_params.task_secret_length);
+        // $("#task-secret").attr("placeholder", "说点悄悄话吧，只对任务接手者可见。如果任务中不需要，可以选择不填。不能超过" + task_params.task_secret_length + "个字");
+        // $("#task-secret-length").text("0");
+        // $("#task-secret-max-length").text(task_params.task_secret_length);
 
         /*设置图片*/
         // dealImage();
@@ -220,14 +221,14 @@ submitImage();
         });
 
         /*设置联系方式*/
-        initLink(task_params.task_link_id, "");
+        // initLink(task_params.task_link_id, "");
     }
 
     /*处理表单，keyup事件*/
     function check_form() {
         var task_name_length_too_long_msg = "任务名称不能超过" + task_params.task_name_length + "个字";
         var task_describe_length_too_long_msg = "任务描述不能超过" + task_params.task_describe_length + "个字";
-        var task_secret_length_too_long_msg = "私密信息不能超过" + task_params.task_describe_length + "个字";
+        // var task_secret_length_too_long_msg = "私密信息不能超过" + task_params.task_describe_length + "个字";
         var task_money_less_than_have_msg = "总金币只有" + task_params.task_money_number + ",请重新输入";
         var task_money_less_than_0_msg = "不要调皮了，正常点";
         var task_link_length_too_long_msg = "联系方式的长度不能超过" + task_params.task_link_max_length + "";
@@ -253,17 +254,17 @@ submitImage();
             }
         });
         /*检查 私密信息*/
-        $("#task-secret").keyup(function() {
-            var value = $(this).val();
-            /*实时设置长度*/
-            $("#task-secret-length").text(value.length);
-            /*检查长度是否超过限制*/
-            if (value.length > task_params.task_secret_length) {
-                $(this).val(value.substr(0, task_params.task_secret_length));
-                $("#task-secret-length").text(task_params.task_secret_length);
-                $.alert(task_secret_length_too_long_msg);
-            }
-        });
+        // $("#task-secret").keyup(function() {
+        //     var value = $(this).val();
+        //     /*实时设置长度*/
+        //     $("#task-secret-length").text(value.length);
+        //     /*检查长度是否超过限制*/
+        //     if (value.length > task_params.task_secret_length) {
+        //         $(this).val(value.substr(0, task_params.task_secret_length));
+        //         $("#task-secret-length").text(task_params.task_secret_length);
+        //         $.alert(task_secret_length_too_long_msg);
+        //     }
+        // });
 
         /*检查金币*/
         $("#task-money").keyup(function() {
@@ -278,6 +279,21 @@ submitImage();
                 $(this).val(0);
                 $.alert(task_money_less_than_0_msg);
             }
+            if(task_params.task_money_number<10){
+                $.alert("积分小于10，不能发布任务！");
+            }
+            // 不应该判断value的值，判断的是后台传过来的数据
+            // if(value<10){
+            //     $.alert("金币小于10不能发布任务");
+            //     setTimeout(function(){
+            //         location.href="index.html";
+            //     },3000)
+            // }
+            // console.log(money);
+            // if(money<10){
+            //     $.alert("金币小于10不能发布任务");
+            //     return;
+            // }
         });
 
         /*检查联系方式*/
@@ -307,8 +323,8 @@ submitImage();
     function submit_form() {
         $("#submit").click(function() {
             /*如果没有足够的金币，不能发布任务*/
-            if (task_params.task_money_number <= 0) {
-                $.alert("您没有足够的积分，不能发布任务！", function() {});
+            if (task_params.task_money_number < 10) {
+                $.alert("积分小于10，不能发布任务！", function() {});
             }
 
             // var images = [];
@@ -326,7 +342,8 @@ submitImage();
             var datas = {
                 title: $("#task-name").val(),
                 content: $("#task-describe").val(),
-                words: $("#task-secret").val(),
+                // 悄悄话
+                // words: $("#task-secret").val(),
                 startTime: $("#task-time-begin").val(),
                 endTime: $("#task-time-end").val(),
                 catId: $("#task-type").val(),
@@ -361,11 +378,11 @@ submitImage();
                 $("#task-describe").focus();
                 return;
             }
-            if (datas.words.length > task_params.task_secret_length) {
-                $.alert("私密信息的长度不能超过" + task_params.task_secret_length + "个字");
-                $("#task-secret").focus();
-                return;
-            }
+            // if (datas.words.length > task_params.task_secret_length) {
+            //     $.alert("私密信息的长度不能超过" + task_params.task_secret_length + "个字");
+            //     $("#task-secret").focus();
+            //     return;
+            // }
             if ($("#task-time-begin").val() > $("#task-time-end").val()) {
                 $.alert("结束时间早于开始时间，存在错误请修改");
                 $("#task-time-end").focus();
@@ -594,6 +611,8 @@ submitImage();
         /*获取类型数据*/
         $.get(ServerUrl + "my/user", function(data) {
             if (data.status == Status.Status_OK) {
+                console.log(data);
+                // money=data.data[0].goldCoins;
                 var userinfo = data.data[0];
                 var schoolInfo = data.data[1];
                 if (schoolInfo == null || !schoolInfo.schoolName) {
@@ -611,9 +630,22 @@ submitImage();
                     $.alert("请设置学校！", function() {
                         location.href = "user-edit.html";
                     });
-                } else if (task_params.task_money_number <= 0) {
-                    $.alert("您没有足够的积分，不能发布任务！", function() {});
+                } else if (task_params.task_money_number < 10) {
+                    $.alert("积分小于10，不能发布任务！", function() {});
                 }
+                //设置手机号
+                initLink(3, userinfo.phone);
+                $("select").change(function(){
+                    console.log($(this).val());
+                    var link_id=$(this).val();
+                    if(link_id=="1"){
+                        initLink(1, userinfo.weixin);
+                    }else if(link_id=="2"){
+                        initLink(2, userinfo.qq);
+                    }else{
+                        initLink(3, userinfo.phone);
+                    }
+                })
             } else {
                 $.toast("数据获取错误");
             }
@@ -622,9 +654,9 @@ submitImage();
 
     /*设置联系方式*/
     function initLink(link_id, value) {
-        /*设置联系方式下拉列表*/
+        /*设置联系方式下拉列表，这个是设置联系方式：手机号，qq，微信*/
         set_link(link_id);
-        /*设置联系方式*/
+        /*设置联系方式，设置具体的*/
         setLinkMethod(link_id, value);
     }
     /*设置联系方式下拉列表:link_id为默认值*/
@@ -747,7 +779,7 @@ submitImage();
             /*设置任务描述*/
             $("#task-describe").val(datas.content);
             /*设置私密信息*/
-            $("#task-secret").val(datas.secret_message);
+            // $("#task-secret").val(datas.secret_message);
             /*设置时间*/
             $("#task-time-begin").datetimePicker({
                 rotateEffect: true,

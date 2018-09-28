@@ -149,6 +149,7 @@ $(function() {
         })
     }
 
+
     /*设置点击事件*/
     function clickEvent() {
         /*改变地区省份时，学校选项列表改变*/
@@ -166,13 +167,20 @@ $(function() {
             }
         });
     }
-
+    // flag用于判断图片存不存在
+    var flag=false;
+    var originalCard="";
     //编辑个人数据（若原本就有数据需默认填写）
     function editUserInfo() {
         /*获取编辑页面数据*/
         $.get(ServerUrl + "my/user", function(datas) {
             //处理展示个人资料
             console.log(datas);
+            if(datas.data[0].card!=""||datas.data[0].card!=undefined){
+                flag=true;
+                originalCard=datas.data[0].card;
+                console.log(flag);
+            }
             if (datas.status == Status.Status_OK) {
                 $.toast("数据获取成功");
                 // 展示个人资料界面
@@ -238,22 +246,37 @@ $(function() {
     /*提交表单*/
     function submit_form() {
         $("#user-info-submit").click(function() {
-            // if (img_is_need_upload && (img_url == null || img_url == "")) {
-            //     alert("请上传学生证");
-            //     return;
-            // }
             console.log(haibaoimages[0]);
+            console.log(flag);
+            console.log(originalCard);
+            if (haibaoimages[0]==""&&flag==false) {
+                alert("请上传学生证");
+                return;
+            }
+            //flag==true带表有图片，就不用传
+            if(flag==true){
+                datas = {
+                    nickname: $("#user-name-edit").val(),
+                    sex: $('input:radio:checked').val(),
+                    qq: $("#user-qq-edit").val(),
+                    phone: $("#user-tel-edit").val(),
+                    weixin: $("#user-weixin-edit").val(),
+                    schoolId: $("#user-school-edit").val(),
+                    card: originalCard
+                };
+            }else{
+                datas = {
+                    nickname: $("#user-name-edit").val(),
+                    sex: $('input:radio:checked').val(),
+                    qq: $("#user-qq-edit").val(),
+                    phone: $("#user-tel-edit").val(),
+                    weixin: $("#user-weixin-edit").val(),
+                    schoolId: $("#user-school-edit").val(),
+                    card: haibaoimages[0]
+                };
+            }
             // alert(haibaoimages[0].slice(0,20));
             /*获取并组装表单项*/
-             datas = {
-                nickname: $("#user-name-edit").val(),
-                sex: $('input:radio:checked').val(),
-                qq: $("#user-qq-edit").val(),
-                phone: $("#user-tel-edit").val(),
-                weixin: $("#user-weixin-edit").val(),
-                schoolId: $("#user-school-edit").val(),
-                card: haibaoimages[0]
-            };
 
             /*检查表单项*/
             if (datas.nickname.length == 0) {

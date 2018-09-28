@@ -38,7 +38,7 @@ $(function() {
         /* 预处理数据：处理私密信息和联系方式 */
         // task.catId != 4 表示不是组队
         if (status.statusCode == status.rec_accept && (task.catId != 4)) { /* 接手状态：用户是路人 */
-            task.words = "***************（接手后才可见)";
+            // task.words = "***************（接手后才可见)";
             task.task_link_select = link_params[0].link_text;
             task.task_link_input = "********（接手后才可见)";
         } else { /* 其他情况完全显示联系方式 */
@@ -64,10 +64,11 @@ $(function() {
         /* 初始化按钮 */
         init_status_and_operation(task);
         /* 初始化图片 */
-        task.images=task.images.slice(1).split(";");
-        console.log(task.images);
-        init_image(task.images);
-
+        if(task.images!=""&&task.images!=null){
+            task.images=task.images.slice(1).split(";");
+            console.log(task.images);
+            init_image(task.images);
+        }
     });
 
     function getData(callback_deal_data) {
@@ -95,7 +96,7 @@ $(function() {
 
         $("#task-name-detail").text(datas.title);
         $("#task-describe-detail").text(datas.content);
-        $("#task-secret-detail").text(datas.words);
+        // $("#task-secret-detail").text(datas.words);
         $("#task-time-begin-detail").text(datas.startTime);
         $("#task-time-end-detail").text(datas.endTime);
         $("#task-type-detail").text(datas.category.category);
@@ -133,6 +134,16 @@ $(function() {
                 });
             });
         } else if (status.statusCode == status.rec_accept) { /* 接手状态：用户是路人 */
+            $.get(ServerUrl + "my/user", function(res){
+                console.log(res);
+                var coin=res.data[0].goldCoins;
+                if(coin<10){
+                    $.alert("金币小于10不能接手任务")
+                    setTimeout(function(){
+                        location.href="index.html";
+                    },3000)
+                }
+            })
             $("#operation1").text("接手").click(function() {
                 $.confirm("确定要接手任务吗？", function() {
                     service_accept(taskId);
